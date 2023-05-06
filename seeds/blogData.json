@@ -1,0 +1,16 @@
+[
+    {
+        "title": "test Blog",
+        "content": "ABCD",
+        "date_created": "2023-02-01",
+        "user_id": 1
+
+    },
+    {
+        "title": "secondblog",
+        "content": "FDKFKE",
+        "date_created": "2020-01-19",
+        "user_id": 1
+    }
+
+]

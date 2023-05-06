@@ -1,1 +1,6 @@
+<!--has to have navbar displaying home button, dashboard button -->
+{{#each blogposts as |post| }}
+<h1>{{post.title}}   {{post.user.user_name}}   {{post.date_created}}</h1>
+<p>{{post.content}}</p>
+{{/each}}
 <h1>Hello</h1>
