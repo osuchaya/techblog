@@ -12,17 +12,13 @@
       <a href="/dashboard">Dashboard</a>
 
       {{#if logged_in}}
-        <a href="/logout">Log out</a>
+        <a id="logout">Log out</a>
       {{else}}
-        <a href="/login">Sign-in</a>
-        <a href="/signup">Sign Up</a>
-
+        <a href="/login">Sign-in/up</a>
+       
       {{/if}}
 
-      {{#if logged_out}}
-        <a href="/login">Sign-in</a>
-        <a href="/signup">Sign Up</a>
-      {{/if}}
+
 
     </nav>
     <main>

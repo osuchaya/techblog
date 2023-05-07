@@ -1,5 +1,9 @@
 const router = require("express").Router();
 const { Blog, User } = require("../models");
+const userRoutes = require('./api/userRoutes');
+const homeRoutes = require('./homeRoutes');
+router.use(userRoutes);
+router.use(homeRoutes);
 
 //const apiRoutes = require('./api');
 //const
@@ -22,9 +26,7 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
-router.get("/dashboard", async (req, res) => {
-  res.render("dashboard");
-});
+
 
 // router.post("/api/users/login", async (req, res) => {
 //     console.log(req.body)
