@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
     blogobject.get({ plain: true })
   );
 
-  res.render("homepage", { blogposts });
+  res.render("homepage", { blogposts, logged_in: req.session.logged_in, });
 });
 router.get("/login", async (req, res) => {
   res.render("login");
@@ -27,7 +27,8 @@ router.get("/dashboard", async (req, res) => {
 });
 
 router.post("/api/users/login", async (req, res) => {
-  try {
+    console.log(req.body)
+//   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
     if (!userData) {
       res
@@ -50,9 +51,9 @@ router.post("/api/users/login", async (req, res) => {
 
       res.json({ user: userData, message: "You are now logged in!" });
     });
-  } catch (err) {
-    res.status(400).json({err, message: "Error!"});
-  }
+//   } catch (err) {
+//     res.status(400).json({err, message: "Error!"});
+//   }
 });
 
 module.exports = router;

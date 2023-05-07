@@ -7,17 +7,22 @@
   </head>
   <body>
     <nav>
-        <a href="/">Home</a>
-        <a href="/dashboard">Dashboard</a>
+      <a href="/">Home</a>
+      <a href="/dashboard">Dashboard</a>
+
+      {{#if logged_in}}
+        <button class="btn" id="logout">logout</button>
+        {{else}}
         <a href="/login">Login</a>
+        
+      {{/if}}
+
+
     </nav>
     <main>
       {{{body}}}
 
     </main>
 
-    {{#if logged_in}}
-      <nav><button class="btn" id="logout">logout</button></nav>
-    {{/if}}
   </body>
 </html>
