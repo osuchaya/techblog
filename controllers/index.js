@@ -28,7 +28,7 @@ router.get("/dashboard", async (req, res) => {
 
 router.post("/api/users/login", async (req, res) => {
     console.log(req.body)
-//   try {
+  try {
     const userData = await User.findOne({ where: { email: req.body.email } });
     if (!userData) {
       res
@@ -51,9 +51,9 @@ router.post("/api/users/login", async (req, res) => {
 
       res.json({ user: userData, message: "You are now logged in!" });
     });
-//   } catch (err) {
-//     res.status(400).json({err, message: "Error!"});
-//   }
+  } catch (err) {
+    res.status(400).json({err, message: "Error!"});
+  }
 });
 
 module.exports = router;

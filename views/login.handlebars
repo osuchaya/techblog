@@ -1,6 +1,6 @@
 <!--has to have form for username/email and password and login button-->
-
-<h2>Login</h2>
+<div class="login-card">
+<h2 class="page-title">Login</h2>
 
 <form class="form login-form">
     <div class="form-group">
@@ -14,8 +14,29 @@
     </div>
 
     <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
+        <button class="btn btn-primary" type="submit">Sign In</button>
     </div>
+</div>
+
+<div class="login-card">
+    <h2 class="page-title">Sign Up</h2>
+    <form class="form signup-form">
+        <div class="form-group">
+            <label for="username-signup">Username:</label>
+            <input class="form-input" type="text" id="username-signup"/>
+        </div>
+        <div class="form-group">
+            <label for="password-signup">Password:</label>
+            <input class="form-input" type="password" id="password-signup"/>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Sign Up</button>
+        </div>
+    </form>
+
+</div>
 </form>
+
+
 
 <script src="/js/login.js"></script>
