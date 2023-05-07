@@ -24,4 +24,11 @@ router.get("/dashboard", withAuth, async (req, res) => {
 router.get("/addblog", withAuth, async (req, res) => {
     res.render("addpost")
 })
+
+router.post("/addblog", withAuth, async (req,res) => {
+    req.body.user_id = req.session.user_id;
+    const newBlog = await Blog.create(req.body);
+    res.status(200).json(newBlog);
+});
+
 module.exports = router;
