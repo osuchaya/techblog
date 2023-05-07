@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
       res.status(400).json(err);
     }
   });
-  router.post('/logout', (req, res) => {
+  router.post('/api/users/logout', (req, res) => {
     if (req.session.logged_in) {
       // Remove the session variables
       req.session.destroy(() => {
