@@ -6,10 +6,11 @@
 
 <h1>{{post.title}}   {{post.user.user_name}}   {{post.date_created}}</h1>
 <button class="edit-post">Edit</button>
-<button class="delete-post">Delete post</button>
+<button class="delete-post" post="{{post.id}}">Delete post</button>
 <p>{{post.content}}</p>
 {{/each}}
 
 
 </div>
 </section>
+<script src="/js/dashboard.js"></script>
