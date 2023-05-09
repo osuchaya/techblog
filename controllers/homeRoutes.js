@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Blog, User } = require("../models");
+const { Blog, User, Comment } = require("../models");
 const { withAuth, areAuth } = require("../utils/auth");
 
 //homeRoutes essentially get all the project data by name
@@ -36,4 +36,9 @@ router.post("/deleteblog", withAuth, async (req, res) => {
     res.status(200);
 })
 
+router.post("/addcomment", withAuth, async (req, res) => {
+    req.body.user_id = req.session.user_id;
+    const newComment = await Comment.create(req.body);
+    res.status(200).json(newComment);
+})
 module.exports = router;
