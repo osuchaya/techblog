@@ -4,7 +4,7 @@
 <div class="blog-container">
 {{#each blogposts as |post| }}
 
-<h1>{{post.title}}   {{post.user.user_name}}   {{post.date_created}}</h1>
+<a href="/blog/{{post.id}}"><h1>{{post.title}}   {{post.user.user_name}}   {{post.date_created}}</h1></a>
 <p>{{post.content}}</p>
 {{/each}}
 </div>
