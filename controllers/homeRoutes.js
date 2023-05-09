@@ -17,8 +17,8 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 
 
-
-  res.render("dashboard", { user });
+//
+  res.render("dashboard", { user, logged_in: req.session.logged_in, });
 });
 
 router.get("/addblog", withAuth, async (req, res) => {
