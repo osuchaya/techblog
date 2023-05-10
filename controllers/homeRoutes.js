@@ -53,8 +53,14 @@ router.post("/deleteblog", withAuth, async (req, res) => {
 
 router.post("/addcomment", withAuth, async (req, res) => {
   req.body.user_id = req.session.user_id;
-  const newComment = await Comment.create(req.body);
-  res.status(200).json(newComment);
+  console.log(req.session.user_id);
+  if(req.session.user_id) {
+    const newComment = await Comment.create(req.body);
+    res.status(200).json(newComment);
+  } else {
+    res.status(400);
+  }
+  
 });
 
 //get specific info about A blog

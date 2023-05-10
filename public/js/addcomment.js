@@ -9,11 +9,12 @@ const addCommentHandler = async (event) => {
             body: JSON.stringify({ content: comment, date_created: new Date(), user_id: 0, blog_id: blog_id }), //transform JS obj into string
             headers: { 'Content-Type': 'application/json' },  //tell the mailman in HTTP what is inside the letter (JSON object) e.g. fragile sticker on box
         });
-
-        if (response.ok) {
+        console.log(response);
+        if (!response.redirected) {
             document.location.reload();
           } else {
-            alert('Failed to add comment');
+            alert('You need to log in to add comment!');
+            console.log('failed to add comment');
           }
         }
       };
