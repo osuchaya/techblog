@@ -30,7 +30,7 @@ This project is considered comprehensive full-stack development as it entails bo
 ## Installation and Usage
 Install Node version 16.0 in order to run this application successfully. Please ensure to:
 1. Generate an .env file and store your sensitive data i.e. your MySQL username and password there. The database name is 'techblog_db'.
-2. Have the following packages installed as listed in package.json file: MySQL2, Sequelize, dotenv, bcrypt, connect-session-sequelize, express-handlebars, express-session and express by type in "npm i" in your integrated terminal. Upon successful installation, run the server by typing 'npm start' in the Integrated Terminal. 
+2. Have the following packages installed as listed in package.json file: MySQL2, Sequelize, dotenv, bcrypt, connect-session-sequelize, express-handlebars, express-session and express by type in "npm i" in your integrated terminal. Upon successful installation, within the command line interface, access MySQL by typing in "mysql -u root -p", enter your password as prompted and source the database by typing "source db/schema.sql". If Query is OK, type "quit", seed the database by typing "npm run seed" then run the server by typing 'npm start' in the Integrated Terminal. 
 
 ## License
 This project is currently under GPL3.0 license.
