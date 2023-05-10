@@ -29,9 +29,24 @@ router.post("/addblog", withAuth, async (req, res) => {
   res.status(200).json(newBlog);
 });
 
+router.put("/editblog", withAuth, async (req, res) => {
+    const newBlog = await Blog.update({title: req.body.title, content: req.body.content}, {where: {
+        id: req.body.id
+    }});
+    res.status(200).json(newBlog);
+})
+router.get("/edit/:blog_id", withAuth, async (req, res) => {
+    const blogId = req.params.blog_id;
+    const blogData = await Blog.findOne(
+      { where: { id: blogId }, include: { all: true, nested: true } }
+     
+    );
+  
+    const blog = blogData.get({ plain: true });
+    res.render("editpost", { post: blog, logged_in: req.session.logged_in });
+})
+
 router.post("/deleteblog", withAuth, async (req, res) => {
-    console.log("deleteblog received");
-    console.log("req.body = ", req.body);
   await Blog.destroy({ where: { id: req.body.id } });
   res.status(200);
 });
@@ -48,12 +63,7 @@ router.get("/blog/:blog_id", async (req, res) => {
   const blogId = req.params.blog_id;
   const blogData = await Blog.findOne(
     { where: { id: blogId }, include: { all: true, nested: true } }
-    // include: [
-    //     {
-    //       model: Comment,
-    //         include: [ {model: User} ]
-    //     },
-    //   ],
+   
   );
 
   const blog = blogData.get({ plain: true });

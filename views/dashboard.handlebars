@@ -3,11 +3,12 @@
 <div class="blog-container">
 <button class="add-post"><a href="/addblog">Add a post</a></button>
 {{#each user.blogs as |post| }}
-
+<div>
 <h1>{{post.title}}   {{post.user.user_name}}   {{post.date_created}}</h1>
-<button class="edit-post">Edit</button>
+<a href="/edit/{{post.id}}"><button class="edit-post">Edit</button></a>
 <button class="delete-post" post="{{post.id}}">Delete post</button>
 <p>{{post.content}}</p>
+</div>
 {{/each}}
 
 

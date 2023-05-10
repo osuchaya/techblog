@@ -6,8 +6,12 @@ const deletePostHandler = async (event) => {
         body: JSON.stringify({id: event.target.getAttribute("post")}),
         headers: { 'Content-Type': 'application/json' },
     });
-    if (response.ok) {
-        document.location.replace('/dashboard');
+        console.log(response.status == 200);
+    if (response.status == 200) {
+        // document.location.reload();
+        console.log(event.target.parentElement);
+        event.target.parentElement.remove();
+
       } else {
         alert('Failed to delete post');
       }
