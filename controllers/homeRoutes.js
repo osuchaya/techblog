@@ -30,6 +30,8 @@ router.post("/addblog", withAuth, async (req, res) => {
 });
 
 router.post("/deleteblog", withAuth, async (req, res) => {
+    console.log("deleteblog received");
+    console.log("req.body = ", req.body);
   await Blog.destroy({ where: { id: req.body.id } });
   res.status(200);
 });
