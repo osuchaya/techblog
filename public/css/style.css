@@ -42,6 +42,9 @@ background-color: azure;
  .newblog-card {
     font-family: monospace;
   }
-  #blog-text {
-    
-  }
+#comment {
+    width: 50%;
+    height: 9em;
+    padding-bottom: 3em;
+}
+ 

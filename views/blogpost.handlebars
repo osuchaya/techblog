@@ -1,5 +1,5 @@
 
-<h1>{{post.title}}   {{post.user.user_name}}   {{post.date_created}}</h1>
+<h1>{{post.title}}   {{post.user.user_name}} {{post.date_created}}</h1>
 <p>{{post.content}}</p>
 
 <form class="form comment-form">
@@ -15,7 +15,9 @@
 </div>
 </form>
 {{#each post.comments as |comment| }}
-<p>{{comment.content}} </p>
+<p>Comment: {{comment.content}}</p>
+<p>By: {{comment.user.user_name}}   Date: {{comment.date_created}}</p>
+
 {{/each}}
 
 
