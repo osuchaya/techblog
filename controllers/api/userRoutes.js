@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
-router.post("/api/users/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     // Find the user who matches the posted e-mail address
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -30,7 +30,7 @@ router.post("/api/users/login", async (req, res) => {
     res.status(400).json(err);
   }
 });
-router.post("/api/users/logout", (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     // Remove the session variables
     req.session.destroy(() => {
@@ -41,7 +41,7 @@ router.post("/api/users/logout", (req, res) => {
   }
 });
 
-router.post("/api/users/signup", async (req, res) => {
+router.post("/signup", async (req, res) => {
   const newUser = await User.create(req.body);
   req.session.save(() => {
     req.session.user_id = newUser.id;

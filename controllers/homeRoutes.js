@@ -7,6 +7,26 @@ const { withAuth, areAuth } = require("../utils/auth");
 //get project by id
 //.get("/dashboard") means localhost/dashboard
 //res.render("dashboard") means handlebars file
+router.get("/", async (req, res) => {
+    const blogData = await Blog.findAll({
+      order: [["date_created", "DESC"]],
+      include: [
+        {
+          model: User,
+        },
+      ],
+    });
+    const blogposts = blogData.map((blogobject) =>
+      blogobject.get({ plain: true })
+    );
+  
+    res.render("homepage", { blogposts, logged_in: req.session.logged_in, });
+  });
+  router.get("/login", async (req, res) => {
+    res.render("login");
+  });
+
+
 router.get("/dashboard", withAuth, async (req, res) => {
   const userData = await User.findByPk(req.session.user_id, {
     attributes: { exclude: ["password"] },
